@@ -3,12 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function middleware(req) {
   // Token will exist if user is logged in
-  const token = await getToken({ req, secret: process.env.JWT_SECRET,
-    secureCookie:
-    process.env.NEXTAUTH_URL?.startsWith("https://") ??
-    !!process.env.VERCEL_URL, });
+  const token = await getToken({ req, secret: process.env.JWT_SECRET });
   const { pathname } = req.nextUrl;
-  
+
   //   Allow requests if the following is true...
 
   // 1) A token exists
