@@ -1,2 +1,0 @@
-# bopify
-A spotify clone
