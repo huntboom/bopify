@@ -25,12 +25,19 @@ function App() {
         token: _token,
       });
 
-      s.getPlaylist("37i9dQZEVXcJZyENOWUFo7").then((response) =>
-        dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
-        })
-      );
+      s.getUserPlaylists().then((playlists) => {
+        const discoverWeekly = playlists.items.find(
+          (playlist) => playlist.name === "Discover Weekly"
+        );
+        if (discoverWeekly) {
+          s.getPlaylist(discoverWeekly.id).then((response) =>
+            dispatch({
+              type: "SET_DISCOVER_WEEKLY",
+              discover_weekly: response,
+            })
+          );
+        }
+      });
 
       s.getMyTopArtists().then((response) =>
         dispatch({
