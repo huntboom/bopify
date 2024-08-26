@@ -2,7 +2,8 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "8532e85f15ff400fa3ceb2fe67dc803f";
-const redirectUri = "http://localhost:3000/";
+const redirectUri = "https://bopified2.web.app";
+;
 const scopes = [
   "user-read-currently-playing",
   "user-read-recently-played",
